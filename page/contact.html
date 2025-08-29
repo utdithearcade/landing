@@ -46,13 +46,14 @@
     <main>
       <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         <div class="max-w-3xl">
-          <h1 class="font-display text-3xl sm:text-4xl font-extrabold tracking-tight">Kontak</h1>
+          <span class="inline-flex items-center rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold">Kontak</span>
+          <h1 class="mt-3 font-display text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-primary to-accent2 bg-clip-text text-transparent">Kontak</h1>
           <p class="mt-3 text-neutral-600">Punya pertanyaan. Ada ide kolaborasi. Atau ingin undang kami. Sapa saja.</p>
         </div>
 
         <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="rounded-2xl border border-neutral-200 p-5 shadow-card">
-            <h2 class="font-semibold">Channel</h2>
+            <h2 class="font-semibold flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-primary"></span>Channel</h2>
             <ul class="mt-2 text-sm text-neutral-700 space-y-2">
               <li>Instagram, @utdi.arcade</li>
               <li>Discord, invite by request</li>
@@ -60,7 +61,7 @@
             </ul>
           </div>
           <div class="rounded-2xl border border-neutral-200 p-5 shadow-card">
-            <h2 class="font-semibold">Kirim Pesan</h2>
+            <h2 class="font-semibold flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-accent2"></span>Kirim Pesan</h2>
             <form class="mt-3 space-y-3" onsubmit="event.preventDefault()">
               <input class="w-full rounded-xl border border-neutral-300 px-3 py-2" placeholder="Nama" />
               <input type="email" class="w-full rounded-xl border border-neutral-300 px-3 py-2" placeholder="Email" />
@@ -70,7 +71,7 @@
           </div>
         </div>
 
-        <div class="mt-10 rounded-3xl p-6 border border-neutral-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="mt-10 rounded-3xl p-6 border border-neutral-200 bg-gradient-to-r from-primary/5 to-accent2/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <h3 class="font-display text-xl font-bold">Mau ikut kegiatan</h3>
             <p class="text-neutral-600 text-sm">Cek jadwal dan pilih yang cocok.</p>
