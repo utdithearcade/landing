@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FAQ | UTDI THE ARCADE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#5B5BD6',
+              accent1: '#FFD23F',
+              accent2: '#FF6A3D',
+              alt: '#0B0B0E',
+            },
+            boxShadow: {
+              card: '0 8px 24px -12px rgba(0,0,0,.2)'
+            },
+            fontFamily: {
+              display: ['Unbounded', 'system-ui', 'sans-serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Unbounded:wght@700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body class="font-sans text-neutral-900 bg-white">
+    <header class="border-b border-neutral-200">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+        <a href="/" class="font-display text-lg font-extrabold tracking-tight">THE ARCADE</a>
+        <nav class="hidden sm:flex items-center gap-4 text-sm">
+          <a class="hover:text-primary" href="/">Home</a>
+          <a class="hover:text-primary" href="/page/about.html">Tentang</a>
+          <a class="hover:text-primary" href="/page/kegiatan.html">Kegiatan</a>
+          <a class="hover:text-primary" href="/page/join.html">Join</a>
+          <a class="text-primary" href="/page/faq.html">FAQ</a>
+          <a class="hover:text-primary" href="/page/contact.html">Kontak</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        <h1 class="font-display text-3xl sm:text-4xl font-extrabold tracking-tight">FAQ</h1>
+        <p class="mt-3 text-neutral-600">Pertanyaan yang sering muncul. Kalau belum ketemu, tanya langsung ke kami.</p>
+
+        <div class="mt-8 divide-y divide-neutral-200 border border-neutral-200 rounded-2xl">
+          <details class="group p-5">
+            <summary class="font-semibold cursor-pointer list-none flex items-center justify-between">
+              Siapa saja yang boleh gabung
+              <span class="ml-4 text-neutral-500 group-open:rotate-180 transition-transform">⌄</span>
+            </summary>
+            <p class="mt-2 text-sm text-neutral-700">Mahasiswa UTDI dari jurusan apa saja. Yang penting mau belajar dan kolaborasi.</p>
+          </details>
+          <details class="group p-5">
+            <summary class="font-semibold cursor-pointer list-none flex items-center justify-between">
+              Apakah berbayar
+              <span class="ml-4 text-neutral-500 group-open:rotate-180 transition-transform">⌄</span>
+            </summary>
+            <p class="mt-2 text-sm text-neutral-700">Gratis. Ada kas sukarela untuk kebutuhan kegiatan. Opsional.</p>
+          </details>
+          <details class="group p-5">
+            <summary class="font-semibold cursor-pointer list-none flex items-center justify-between">
+              Kegiatannya seperti apa
+              <span class="ml-4 text-neutral-500 group-open:rotate-180 transition-transform">⌄</span>
+            </summary>
+            <p class="mt-2 text-sm text-neutral-700">Workshop, build night, sharing alumni, dan proyek kolaborasi. Lihat halaman kegiatan untuk detail.</p>
+          </details>
+          <details class="group p-5">
+            <summary class="font-semibold cursor-pointer list-none flex items-center justify-between">
+              Bagaimana cara mulai
+              <span class="ml-4 text-neutral-500 group-open:rotate-180 transition-transform">⌄</span>
+            </summary>
+            <p class="mt-2 text-sm text-neutral-700">Isi form join. Masuk group. Pilih kegiatan. Mulai jalan.</p>
+          </details>
+        </div>
+
+        <div class="mt-10 rounded-3xl p-6 border border-neutral-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <h3 class="font-display text-xl font-bold">Masih bingung</h3>
+            <p class="text-neutral-600 text-sm">Tanya saja. Kami respons secepatnya.</p>
+          </div>
+          <a href="/page/contact.html" class="inline-flex items-center rounded-full px-4 py-2 bg-primary text-white hover:opacity-90">Kontak</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-neutral-200 py-8">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-600">
+        <span> &copy; <span id="y"></span> UTDI THE ARCADE</span>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-primary">Instagram</a>
+          <a href="#" class="hover:text-primary">Discord</a>
+          <a href="#" class="hover:text-primary">GitHub</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('y').textContent = new Date().getFullYear()
+    </script>
+  </body>
+</html>
