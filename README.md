@@ -3,12 +3,17 @@
 Landing page untuk komunitas Gen Z di kampus UTDI yang menjadikan dunia digital sebagai petualangan. Dibangun sangat ringan dengan Tailwind Play CDN, fokus pada tipografi display yang bold, grid kartu yang playful, dan palet warna kontras.
 
 ## Preview
-Buka file `index.html` langsung di browser atau gunakan Live Server untuk hot reload. Tampilan hero berisi headline "THE ARCADE", badge miring, dan grid 4 kartu berwarna.
+Buka file `index.html` langsung di browser atau gunakan Live Server untuk hot reload. Tampilan hero berisi headline "THE ARCADE" dengan gradient, badge miring, dan grid 4 kartu berwarna.
+
+![Preview Landing](assets/images/landing.png)
 
 ## Fitur
-- __Hero besar & bold__: Headline display dengan badge miring.
-- __Grid kartu responsif__: 4 kartu dengan dekorasi SVG dan CTA.
-- __Palet warna kustom__: primary, accent1, accent2, dan alt (hitam).
+- __Hero besar & bold__: Heading display dengan gradient `from-primary` → `to-accent2` dan badge miring.
+- __Grid kartu responsif__: 4 kartu dengan dekorasi SVG, indikator titik berwarna pada judul, dan CTA jelas.
+- __Palet warna kustom__: `primary`, `accent1`, `accent2`, dan `alt` (hitam gelap).
+- __Background pattern halus__: pola grid tipis agar tampilan lebih hidup tanpa mengganggu konten.
+- __CTA strip ber-gradient__: konsisten dengan halaman lain.
+- __Konsistensi antar halaman__: `page/about.html`, `page/kegiatan.html`, `page/join.html`, `page/faq.html`, `page/contact.html` memiliki badge, heading gradient, dan aksen warna selaras.
 - __Zero build step__: Cukup CDN - tidak perlu tooling.
 
 ## Teknologi
@@ -29,9 +34,18 @@ Buka file `index.html` langsung di browser atau gunakan Live Server untuk hot re
 ## Struktur Proyek
 ```
 landing/
-├─ index.html    # Halaman utama (Tailwind CDN + komponen)
-├─ README.md     # Dokumen ini
-└─ LICENSE       # Lisensi
+├─ index.html             # Halaman utama (Tailwind CDN + komponen)
+├─ page/                  # Halaman sekunder
+│  ├─ about.html
+│  ├─ kegiatan.html
+│  ├─ join.html
+│  ├─ faq.html
+│  └─ contact.html
+├─ assets/
+│  └─ images/
+│     └─ landing.png      # Screenshot preview README
+├─ README.md              # Dokumen ini
+└─ LICENSE                # Lisensi
 ```
 
 ## Kustomisasi
