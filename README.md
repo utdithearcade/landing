@@ -1,4 +1,4 @@
-# UTDI THE ARCADE — Landing Page
+# UTDI THE ARCADE - Landing Page
 
 Landing page untuk komunitas Gen Z di kampus UTDI yang menjadikan dunia digital sebagai petualangan. Dibangun sangat ringan dengan Tailwind Play CDN, fokus pada tipografi display yang bold, grid kartu yang playful, dan palet warna kontras.
 
@@ -9,10 +9,10 @@ Buka file `index.html` langsung di browser atau gunakan Live Server untuk hot re
 - __Hero besar & bold__: Headline display dengan badge miring.
 - __Grid kartu responsif__: 4 kartu dengan dekorasi SVG dan CTA.
 - __Palet warna kustom__: primary, accent1, accent2, dan alt (hitam).
-- __Zero build step__: Cukup CDN — tidak perlu tooling.
+- __Zero build step__: Cukup CDN - tidak perlu tooling.
 
 ## Teknologi
-- __Tailwind CSS (Play CDN)__ — tanpa setup build.
+- __Tailwind CSS (Play CDN)__ - tanpa setup build.
 - __Google Fonts__: Unbounded (display) & Inter (body).
 
 ## Palet Warna
