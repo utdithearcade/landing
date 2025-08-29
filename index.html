@@ -8,6 +8,8 @@
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Unicons for icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
 
      <!-- Tailwind Play CDN -->
      <script src="https://cdn.tailwindcss.com"></script>
@@ -67,23 +69,48 @@
      <div class="min-h-screen">
        <!-- NAVBAR -->
        <header class="sticky top-0 z-20 bg-white/80 dark:bg-neutral-950/70 backdrop-blur border-b border-neutral-200 dark:border-neutral-800">
-         <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-           <a href="#" class="flex items-center gap-2">
-             <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white font-bold">A</span>
-             <span class="font-semibold">UTDI THE ARCADE</span>
-           </a>
-           <div class="hidden md:flex items-center gap-6">
-             <a class="text-sm hover:text-primary" href="page/about.html">Tentang</a>
-             <a class="text-sm hover:text-primary" href="page/kegiatan.html">Kegiatan</a>
-             <a class="text-sm hover:text-primary" href="page/join.html">Join</a>
-           </div>
-           <div class="flex items-center gap-2">
-             <button class="hidden sm:inline-flex px-3 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 text-sm">Search</button>
-             <button id="themeToggle" class="inline-flex px-3 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 text-sm" aria-label="Toggle theme">Tema</button>
-             <a href="page/join.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-white text-sm font-semibold hover:opacity-90">Gabung</a>
-           </div>
-         </nav>
-       </header>
+        <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <a href="/" class="flex items-center gap-2 shrink-0">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-white"><i class="uil uil-controller"></i></span>
+            <span class="font-display font-extrabold tracking-tight">THE ARCADE</span>
+          </a>
+          <button id="mobileToggle" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-xl border border-neutral-300 dark:border-neutral-700" aria-label="Toggle navigation">
+            <i class="uil uil-apps"></i>
+          </button>
+          <div class="hidden md:flex items-center gap-6">
+            <a class="text-sm hover:text-primary inline-flex items-center gap-1" href="page/about.html"><i class="uil uil-info-circle"></i> <span>Tentang</span></a>
+            <a class="text-sm hover:text-primary inline-flex items-center gap-1" href="page/kegiatan.html"><i class="uil uil-presentation-check"></i> <span>Kegiatan</span></a>
+            <a class="text-sm hover:text-primary inline-flex items-center gap-1" href="page/faq.html"><i class="uil uil-question-circle"></i> <span>FAQ</span></a>
+            <a class="text-sm hover:text-primary inline-flex items-center gap-1" href="page/contact.html"><i class="uil uil-envelope"></i> <span>Kontak</span></a>
+          </div>
+          <div class="hidden md:flex items-center gap-2">
+            <button id="themeToggle" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 text-sm" aria-label="Toggle theme">
+              <i id="iconMoon" class="uil uil-moon"></i>
+              <i id="iconSun" class="uil uil-sun hidden"></i>
+              <span class="hidden sm:inline">Tema</span>
+            </button>
+            <a href="page/join.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-white text-sm font-semibold hover:opacity-90"><i class="uil uil-user-plus"></i> Gabung</a>
+          </div>
+        </nav>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden border-t border-neutral-200 dark:border-neutral-800 bg-white/95 dark:bg-neutral-950/90 backdrop-blur">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex flex-col gap-2">
+            <a class="inline-flex items-center gap-2 py-2 hover:text-primary" href="/"><i class="uil uil-estate"></i> Home</a>
+            <a class="inline-flex items-center gap-2 py-2 hover:text-primary" href="page/about.html"><i class="uil uil-info-circle"></i> Tentang</a>
+            <a class="inline-flex items-center gap-2 py-2 hover:text-primary" href="page/kegiatan.html"><i class="uil uil-presentation-check"></i> Kegiatan</a>
+            <a class="inline-flex items-center gap-2 py-2 hover:text-primary" href="page/faq.html"><i class="uil uil-question-circle"></i> FAQ</a>
+            <a class="inline-flex items-center gap-2 py-2 hover:text-primary" href="page/contact.html"><i class="uil uil-envelope"></i> Kontak</a>
+            <div class="pt-2 flex items-center gap-2">
+              <button id="themeToggleMobile" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 text-sm" aria-label="Toggle theme">
+                <i id="iconMoonM" class="uil uil-moon"></i>
+                <i id="iconSunM" class="uil uil-sun hidden"></i>
+                Tema
+              </button>
+              <a href="page/join.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-white text-sm font-semibold"><i class="uil uil-user-plus"></i> Gabung</a>
+            </div>
+          </div>
+        </div>
+      </header>
 
        <!-- HERO -->
        <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 pb-12 sm:pt-10 sm:pb-16">
@@ -207,12 +234,33 @@
      <script>
        // Set current year
        document.getElementById('y').textContent = new Date().getFullYear();
-       // Theme toggler
+       // Theme toggler (desktop + mobile) + icon swap
+       function syncThemeIcons() {
+         const isDark = document.documentElement.classList.contains('dark');
+         const mm = document.getElementById('iconMoon');
+         const ms = document.getElementById('iconSun');
+         const mm2 = document.getElementById('iconMoonM');
+         const ms2 = document.getElementById('iconSunM');
+         if (mm && ms) { ms.classList.toggle('hidden', !isDark); mm.classList.toggle('hidden', isDark); }
+         if (mm2 && ms2) { ms2.classList.toggle('hidden', !isDark); mm2.classList.toggle('hidden', isDark); }
+       }
+       function toggleTheme() {
+         const isDark = document.documentElement.classList.toggle('dark');
+         localStorage.setItem('theme', isDark ? 'dark' : 'light');
+         syncThemeIcons();
+       }
        const btn = document.getElementById('themeToggle');
-       if (btn) {
-         btn.addEventListener('click', () => {
-           const isDark = document.documentElement.classList.toggle('dark');
-           localStorage.setItem('theme', isDark ? 'dark' : 'light');
+       if (btn) btn.addEventListener('click', toggleTheme);
+       const btnM = document.getElementById('themeToggleMobile');
+       if (btnM) btnM.addEventListener('click', toggleTheme);
+       syncThemeIcons();
+
+       // Mobile menu toggle
+       const mbtn = document.getElementById('mobileToggle');
+       const mmenu = document.getElementById('mobileMenu');
+       if (mbtn && mmenu) {
+         mbtn.addEventListener('click', () => {
+           mmenu.classList.toggle('hidden');
          });
        }
      </script>
