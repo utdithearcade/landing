@@ -12,8 +12,9 @@
      <!-- Tailwind Play CDN -->
      <script src="https://cdn.tailwindcss.com"></script>
      <script>
-       // Tailwind custom theme
+       // Tailwind custom theme with dark mode
        tailwind.config = {
+         darkMode: 'class',
          theme: {
            extend: {
              colors: {
@@ -37,19 +38,35 @@
        /* Simple tilt badge utility */
        .tilt { transform: rotate(-8deg); }
        .tilt-r { transform: rotate(8deg); }
-        body {
+       body {
             background-color: white;
             background-image: 
                 repeating-linear-gradient(0deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 1px, transparent 1px, transparent 60px),
                 repeating-linear-gradient(90deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 1px, transparent 1px, transparent 60px);
         }
+       /* Dark body pattern override */
+       .dark body {
+         background-color: #0b0b0e;
+         background-image:
+           repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 60px),
+           repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 60px);
+       }
      </style>
+     <script>
+       // Initialize theme from localStorage or system preference
+       (function(){
+         const t = localStorage.getItem('theme');
+         if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+           document.documentElement.classList.add('dark');
+         }
+       })();
+     </script>
    </head>
-   <body class="bg-white text-neutral-900 font-sans antialiased">
+   <body class="bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 font-sans antialiased">
      <!-- Wrapper -->
      <div class="min-h-screen">
        <!-- NAVBAR -->
-       <header class="sticky top-0 z-20 bg-white/80 backdrop-blur border-b border-neutral-200">
+       <header class="sticky top-0 z-20 bg-white/80 dark:bg-neutral-950/70 backdrop-blur border-b border-neutral-200 dark:border-neutral-800">
          <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
            <a href="#" class="flex items-center gap-2">
              <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white font-bold">A</span>
@@ -61,7 +78,8 @@
              <a class="text-sm hover:text-primary" href="page/join.html">Join</a>
            </div>
            <div class="flex items-center gap-2">
-             <button class="hidden sm:inline-flex px-3 py-2 rounded-full border border-neutral-300 hover:border-neutral-400 text-sm">Search</button>
+             <button class="hidden sm:inline-flex px-3 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 text-sm">Search</button>
+             <button id="themeToggle" class="inline-flex px-3 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 text-sm" aria-label="Toggle theme">Tema</button>
              <a href="page/join.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-white text-sm font-semibold hover:opacity-90">Gabung</a>
            </div>
          </nav>
@@ -71,112 +89,112 @@
        <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 pb-12 sm:pt-10 sm:pb-16">
          <!-- Headline row -->
          <div class="relative">
-          <span class="inline-flex items-center rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold">Komunitas UTDI</span>
-          <div class="mt-2 flex flex-wrap items-start gap-x-6 gap-y-3">
-            <h1 class="font-display font-extrabold leading-none text-[11vw] sm:text-[9vw] lg:text-[7rem] tracking-tight bg-gradient-to-r from-primary to-accent2 bg-clip-text text-transparent">
-              THE ARCADE
-            </h1>
-            <span class="tilt mt-3 inline-flex select-none items-center gap-2 rounded-xl border border-neutral-300 bg-white px-3 py-0.5 sm:px-4 sm:py-1 shadow-card text-[11px] sm:text-sm">
-              Kampus UTDI • IT • Creative • Business
-              <span class="inline-block rounded-full bg-accent1 px-2 py-0.5 font-semibold">Gen Z</span>
-            </span>
-          </div>
-          <!-- Subtext -->
-          <p class="mt-3 sm:mt-4 max-w-2xl text-neutral-600 text-sm sm:text-base">
-            Komunitas tempat anak IT UTDI menjadikan dunia digital sebagai petualangan. Dari teknis, kreatif, sampai bisnis, semua nyatu, semua seru.
-          </p>
-        </div>
+           <span class="inline-flex items-center rounded-full bg-primary/10 text-primary dark:bg-white/10 dark:text-white px-3 py-1 text-xs font-semibold">Komunitas UTDI</span>
+           <div class="mt-2 flex flex-wrap items-start gap-x-6 gap-y-3">
+             <h1 class="font-display font-extrabold leading-none text-[11vw] sm:text-[9vw] lg:text-[7rem] tracking-tight bg-gradient-to-r from-primary to-accent2 bg-clip-text text-transparent">
+               THE ARCADE
+             </h1>
+             <span class="tilt mt-3 inline-flex select-none items-center gap-2 rounded-xl border border-neutral-300 bg-white dark:bg-neutral-900 px-3 py-0.5 sm:px-4 sm:py-1 shadow-card text-[11px] sm:text-sm">
+               Kampus UTDI • IT • Creative • Business
+               <span class="inline-block rounded-full bg-accent1 px-2 py-0.5 font-semibold">Gen Z</span>
+             </span>
+           </div>
+           <!-- Subtext -->
+           <p class="mt-3 sm:mt-4 max-w-2xl text-neutral-600 dark:text-neutral-300 text-sm sm:text-base">
+             Komunitas tempat anak IT UTDI menjadikan dunia digital sebagai petualangan. Dari teknis, kreatif, sampai bisnis, semua nyatu, semua seru.
+           </p>
+         </div>
 
          <!-- Card Grid inspired by reference -->
-        <div class="mt-8 sm:mt-10">
-          <span class="inline-flex items-center rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold">Program & Aktivitas</span>
-          <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          <!-- Card 1: Primary -->
-          <div class="rounded-3xl bg-primary text-white p-5 sm:p-6 lg:p-7 shadow-card flex flex-col">
-            <div class="relative h-20 sm:h-24 lg:h-28 mb-5 sm:mb-6">
-              <!-- decorative rings -->
-              <svg viewBox="0 0 200 100" class="absolute inset-0 w-full h-full opacity-80">
-                <g fill="none" stroke="white" stroke-width="3">
-                  <circle cx="40" cy="50" r="22" />
-                  <circle cx="80" cy="50" r="22" />
-                  <circle cx="120" cy="50" r="22" />
-                  <circle cx="160" cy="50" r="22" />
-                </g>
-              </svg>
-            </div>
-            <h3 class="font-display text-xl sm:text-2xl font-bold flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-white"></span>Belajar Bareng</h3>
-            <p class="mt-2 mb-4 text-white/90 text-sm sm:text-base">Workshop coding, desain, dan produk digital, dari basic sampai advanced.</p>
-            <a href="page/kegiatan.html" class="mt-auto self-start inline-flex items-center gap-2 rounded-full bg-white text-primary px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-semibold hover:opacity-90">Lihat Kegiatan</a>
-          </div>
+         <div class="mt-8 sm:mt-10">
+           <span class="inline-flex items-center rounded-full bg-primary/10 text-primary dark:bg-white/10 dark:text-white px-3 py-1 text-xs font-semibold">Program & Aktivitas</span>
+           <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+             <!-- Card 1: Primary -->
+             <div class="rounded-3xl bg-primary text-white p-5 sm:p-6 lg:p-7 shadow-card flex flex-col">
+               <div class="relative h-20 sm:h-24 lg:h-28 mb-5 sm:mb-6">
+                 <!-- decorative rings -->
+                 <svg viewBox="0 0 200 100" class="absolute inset-0 w-full h-full opacity-80">
+                   <g fill="none" stroke="white" stroke-width="3">
+                     <circle cx="40" cy="50" r="22" />
+                     <circle cx="80" cy="50" r="22" />
+                     <circle cx="120" cy="50" r="22" />
+                     <circle cx="160" cy="50" r="22" />
+                   </g>
+                 </svg>
+               </div>
+               <h3 class="font-display text-xl sm:text-2xl font-bold flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-white"></span>Belajar Bareng</h3>
+               <p class="mt-2 mb-4 text-white/90 text-sm sm:text-base">Workshop coding, desain, dan produk digital, dari basic sampai advanced.</p>
+               <a href="page/kegiatan.html" class="mt-auto self-start inline-flex items-center gap-2 rounded-full bg-white text-primary px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-semibold hover:opacity-90">Lihat Kegiatan</a>
+             </div>
 
-           <!-- Card 2: Accent Yellow -->
-           <div class="rounded-3xl bg-accent1 text-neutral-900 p-5 sm:p-6 lg:p-7 shadow-card flex flex-col">
-            <div class="relative h-20 sm:h-24 lg:h-28 mb-5 sm:mb-6">
-              <!-- decorative chain ellipses -->
-              <svg viewBox="0 0 200 100" class="absolute inset-0 w-full h-full opacity-80">
-                <g fill="none" stroke="#0B0B0E" stroke-width="3">
-                  <ellipse cx="70" cy="50" rx="45" ry="22" />
-                  <ellipse cx="100" cy="50" rx="45" ry="22" />
-                  <ellipse cx="130" cy="50" rx="45" ry="22" />
-                </g>
-              </svg>
-            </div>
-            <h3 class="font-display text-xl sm:text-2xl font-bold flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-alt"></span>Kolaborasi</h3>
-            <p class="mt-2 mb-4 text-neutral-800 text-sm sm:text-base">Temukan tim lintas role: dev, design, marketing. Build sesuatu yang keren.</p>
-            <a href="page/join.html" class="mt-auto self-start inline-flex items-center gap-2 rounded-full border border-neutral-900 px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-semibold hover:bg-neutral-900 hover:text-white">Cari Partner</a>
-          </div>
+             <!-- Card 2: Accent Yellow -->
+             <div class="rounded-3xl bg-accent1 text-neutral-900 p-5 sm:p-6 lg:p-7 shadow-card flex flex-col">
+               <div class="relative h-20 sm:h-24 lg:h-28 mb-5 sm:mb-6">
+                 <!-- decorative chain ellipses -->
+                 <svg viewBox="0 0 200 100" class="absolute inset-0 w-full h-full opacity-80">
+                   <g fill="none" stroke="#0B0B0E" stroke-width="3">
+                     <ellipse cx="70" cy="50" rx="45" ry="22" />
+                     <ellipse cx="100" cy="50" rx="45" ry="22" />
+                     <ellipse cx="130" cy="50" rx="45" ry="22" />
+                   </g>
+                 </svg>
+               </div>
+               <h3 class="font-display text-xl sm:text-2xl font-bold flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-alt"></span>Kolaborasi</h3>
+               <p class="mt-2 mb-4 text-neutral-800 text-sm sm:text-base">Temukan tim lintas role: dev, design, marketing. Build sesuatu yang keren.</p>
+               <a href="page/join.html" class="mt-auto self-start inline-flex items-center gap-2 rounded-full border border-neutral-900 px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-semibold hover:bg-neutral-900 hover:text-white">Cari Partner</a>
+             </div>
 
-           <!-- Card 3: Accent Orange -->
-           <div class="rounded-3xl bg-accent2 text-white p-5 sm:p-6 lg:p-7 shadow-card flex flex-col">
-            <div class="relative h-20 sm:h-24 lg:h-28 mb-5 sm:mb-6">
-              <!-- decorative repeated circles -->
-              <svg viewBox="0 0 200 100" class="absolute inset-0 w-full h-full opacity-90">
-                <g fill="none" stroke="white" stroke-width="3">
-                  <circle cx="60" cy="50" r="22" />
-                  <circle cx="100" cy="50" r="22" />
-                  <circle cx="140" cy="50" r="22" />
-                </g>
-              </svg>
-            </div>
-            <h3 class="font-display text-xl sm:text-2xl font-bold flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-white"></span>Event & Challenge</h3>
-            <p class="mt-2 mb-4 text-white/90 text-sm sm:text-base">Hackathon kecil-kecilan, mini showcase, sampai sharing alumni.</p>
-            <a href="page/kegiatan.html" class="mt-auto self-start inline-flex items-center gap-2 rounded-full bg-white text-accent2 px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-semibold hover:opacity-90">Jadwal</a>
-          </div>
+             <!-- Card 3: Accent Orange -->
+             <div class="rounded-3xl bg-accent2 text-white p-5 sm:p-6 lg:p-7 shadow-card flex flex-col">
+               <div class="relative h-20 sm:h-24 lg:h-28 mb-5 sm:mb-6">
+                 <!-- decorative repeated circles -->
+                 <svg viewBox="0 0 200 100" class="absolute inset-0 w-full h-full opacity-90">
+                   <g fill="none" stroke="white" stroke-width="3">
+                     <circle cx="60" cy="50" r="22" />
+                     <circle cx="100" cy="50" r="22" />
+                     <circle cx="140" cy="50" r="22" />
+                   </g>
+                 </svg>
+               </div>
+               <h3 class="font-display text-xl sm:text-2xl font-bold flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-white"></span>Event & Challenge</h3>
+               <p class="mt-2 mb-4 text-white/90 text-sm sm:text-base">Hackathon kecil-kecilan, mini showcase, sampai sharing alumni.</p>
+               <a href="page/kegiatan.html" class="mt-auto self-start inline-flex items-center gap-2 rounded-full bg-white text-accent2 px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-semibold hover:opacity-90">Jadwal</a>
+             </div>
 
-           <!-- Card 4: Alt Black -->
-           <div class="rounded-3xl bg-alt text-white p-5 sm:p-6 lg:p-7 shadow-card flex flex-col">
-            <div class="relative h-20 sm:h-24 lg:h-28 mb-5 sm:mb-6">
-              <!-- decorative bold text look -->
-              <div class="absolute inset-0 grid place-items-center">
-                <span class="tilt-r inline-block rounded-lg border border-white/20 px-3 py-1 text-xs tracking-wider">Diskon merch pertama 15%</span>
-              </div>
-            </div>
-            <h3 class="font-display text-xl sm:text-2xl font-bold flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-accent1"></span>Merch & Identity</h3>
-            <p class="mt-2 mb-4 text-white/90 text-sm sm:text-base">Build identity bareng, sticker pack, tee, sampai digital asset.</p>
-            <a href="page/about.html" class="mt-auto self-start inline-flex items-center gap-2 rounded-full bg-white text-alt px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-semibold hover:opacity-90">Cek Detail</a>
-          </div>
-          </div>
-        </div>
+             <!-- Card 4: Alt Black -->
+             <div class="rounded-3xl bg-alt text-white p-5 sm:p-6 lg:p-7 shadow-card flex flex-col">
+               <div class="relative h-20 sm:h-24 lg:h-28 mb-5 sm:mb-6">
+                 <!-- decorative bold text look -->
+                 <div class="absolute inset-0 grid place-items-center">
+                   <span class="tilt-r inline-block rounded-lg border border-white/20 px-3 py-1 text-xs tracking-wider">Diskon merch pertama 15%</span>
+                 </div>
+               </div>
+               <h3 class="font-display text-xl sm:text-2xl font-bold flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-accent1"></span>Merch & Identity</h3>
+               <p class="mt-2 mb-4 text-white/90 text-sm sm:text-base">Build identity bareng, sticker pack, tee, sampai digital asset.</p>
+               <a href="page/about.html" class="mt-auto self-start inline-flex items-center gap-2 rounded-full bg-white text-alt px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-semibold hover:opacity-90">Cek Detail</a>
+             </div>
+           </div>
+         </div>
 
          <!-- CTA strip -->
          <div id="join" class="mt-12">
-          <div class="rounded-3xl border border-neutral-200 bg-gradient-to-r from-primary/5 to-accent2/5 p-5 sm:p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-4">
-            <div>
-              <h2 class="font-display text-xl sm:text-2xl font-bold">Ready to play the next level?</h2>
-              <p class="text-neutral-600 text-sm sm:text-base">Daftar komunitas dan mulai petualangan digitalmu di UTDI.</p>
-            </div>
-            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3 w-full sm:w-auto lg:w-auto lg:ml-auto">
-              <a href="page/join.html" class="inline-flex items-center justify-center rounded-full px-4 py-2 sm:px-5 sm:py-2.5 bg-primary text-white font-semibold hover:opacity-90 w-full sm:w-auto text-center whitespace-nowrap shrink-0">Daftar Sekarang</a>
-              <a href="page/about.html" class="inline-flex items-center justify-center rounded-full px-4 py-2 sm:px-5 sm:py-2.5 border border-neutral-300 hover:border-neutral-400 w-full sm:w-auto text-center whitespace-nowrap shrink-0">Pelajari Dulu</a>
-            </div>
-          </div>
-        </div>
+           <div class="rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-gradient-to-r from-primary/5 to-accent2/5 dark:from-primary/10 dark:to-accent2/10 p-5 sm:p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-4">
+             <div>
+               <h2 class="font-display text-xl sm:text-2xl font-bold">Ready to play the next level?</h2>
+               <p class="text-neutral-600 dark:text-neutral-300 text-sm sm:text-base">Daftar komunitas dan mulai petualangan digitalmu di UTDI.</p>
+             </div>
+             <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3 w-full sm:w-auto lg:w-auto lg:ml-auto">
+               <a href="page/join.html" class="inline-flex items-center justify-center rounded-full px-4 py-2 sm:px-5 sm:py-2.5 bg-primary text-white font-semibold hover:opacity-90 w-full sm:w-auto text-center whitespace-nowrap shrink-0">Daftar Sekarang</a>
+               <a href="page/about.html" class="inline-flex items-center justify-center rounded-full px-4 py-2 sm:px-5 sm:py-2.5 border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 w-full sm:w-auto text-center whitespace-nowrap shrink-0">Pelajari Dulu</a>
+             </div>
+           </div>
+         </div>
        </section>
 
        <!-- FOOTER -->
-       <footer class="border-t border-neutral-200 py-8">
-         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-600">
-          <span> &copy; <span id="y"></span> UTDI THE ARCADE</span>
+       <footer class="border-t border-neutral-200 dark:border-neutral-800 py-8">
+         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-600 dark:text-neutral-300">
+           <span> &copy; <span id="y"></span> UTDI THE ARCADE</span>
            <div class="flex items-center gap-4">
              <a href="#" class="hover:text-primary">Instagram</a>
              <a href="#" class="hover:text-primary">Discord</a>
@@ -189,6 +207,14 @@
      <script>
        // Set current year
        document.getElementById('y').textContent = new Date().getFullYear();
+       // Theme toggler
+       const btn = document.getElementById('themeToggle');
+       if (btn) {
+         btn.addEventListener('click', () => {
+           const isDark = document.documentElement.classList.toggle('dark');
+           localStorage.setItem('theme', isDark ? 'dark' : 'light');
+         });
+       }
      </script>
    </body>
  </html>

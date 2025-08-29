@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             colors: {
@@ -33,64 +34,82 @@
               repeating-linear-gradient(0deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 1px, transparent 1px, transparent 60px),
               repeating-linear-gradient(90deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 1px, transparent 1px, transparent 60px);
       }
+      .dark body {
+        background-color: #0b0b0e;
+        background-image:
+          repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 60px),
+          repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 60px);
+      }
   </style>
+    <script>
+      // Initialize theme from localStorage or system preference
+      (function(){
+        const t = localStorage.getItem('theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Unbounded:wght@700;800&display=swap" rel="stylesheet" />
   </head>
-  <body class="font-sans text-neutral-900 bg-white">
-    <header class="border-b border-neutral-200">
+  <body class="bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 font-sans antialiased">
+    <header class="border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <a href="../index.html" class="font-display text-lg font-extrabold tracking-tight">THE ARCADE</a>
-        <nav class="hidden sm:flex items-center gap-4 text-sm">
-          <a class="hover:text-primary" href="../index.html">Home</a>
-          <a class="hover:text-primary" href="about.html">Tentang</a>
-          <a class="text-primary" href="kegiatan.html">Kegiatan</a>
-          <a class="hover:text-primary" href="join.html">Join</a>
-          <a class="hover:text-primary" href="faq.html">FAQ</a>
-          <a class="hover:text-primary" href="contact.html">Kontak</a>
-        </nav>
+        <div class="hidden sm:flex items-center gap-4 text-sm">
+          <nav class="flex items-center gap-4">
+            <a class="hover:text-primary" href="../index.html">Home</a>
+            <a class="hover:text-primary" href="about.html">Tentang</a>
+            <a class="text-primary" href="kegiatan.html">Kegiatan</a>
+            <a class="hover:text-primary" href="join.html">Join</a>
+            <a class="hover:text-primary" href="faq.html">FAQ</a>
+            <a class="hover:text-primary" href="contact.html">Kontak</a>
+          </nav>
+          <button id="themeToggle" class="inline-flex px-3 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500" aria-label="Toggle theme">Tema</button>
+        </div>
       </div>
     </header>
 
     <main>
       <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         <div class="max-w-3xl">
-          <span class="inline-flex items-center rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold">Kegiatan</span>
+          <span class="inline-flex items-center rounded-full bg-primary/10 text-primary dark:bg-white/10 dark:text-white px-3 py-1 text-xs font-semibold">Kegiatan</span>
           <h1 class="mt-3 font-display text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-primary to-accent2 bg-clip-text text-transparent">Kegiatan</h1>
-          <p class="mt-3 text-neutral-600">Ini daftar kegiatan yang rutin jalan di komunitas. Kamu bebas ikut, belajar, dan kenalan. Pilih yang cocok. Gas.</p>
+          <p class="mt-3 text-neutral-600 dark:text-neutral-300">Ini daftar kegiatan yang rutin jalan di komunitas. Kamu bebas ikut, belajar, dan kenalan. Pilih yang cocok. Gas.</p>
         </div>
 
         <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <article class="rounded-2xl border border-neutral-200 p-5 shadow-card flex flex-col">
+          <article class="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 shadow-card flex flex-col">
             <h2 class="font-semibold flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-primary"></span>Workshop Sabtu Pagi</h2>
-            <p class="mt-2 text-sm text-neutral-700 flex-1">Belajar dasar pemrograman, desain, atau produk. Materi ringan. Cocok buat mulai.</p>
+            <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300 flex-1">Belajar dasar pemrograman, desain, atau produk. Materi ringan. Cocok buat mulai.</p>
             <a href="#" class="mt-4 inline-flex self-start items-center rounded-full px-3 py-1.5 bg-primary text-white text-sm font-semibold hover:opacity-90">Ikut Sesi</a>
           </article>
-          <article class="rounded-2xl border border-neutral-200 p-5 shadow-card flex flex-col">
+          <article class="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 shadow-card flex flex-col">
             <h2 class="font-semibold flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-accent1"></span>Build Night</h2>
-            <p class="mt-2 text-sm text-neutral-700 flex-1">Ngumpul malam. Ngerjain side project bareng. Santai, fokus, produktif.</p>
+            <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300 flex-1">Ngumpul malam. Ngerjain side project bareng. Santai, fokus, produktif.</p>
             <a href="#" class="mt-4 inline-flex self-start items-center rounded-full px-3 py-1.5 bg-primary text-white text-sm font-semibold hover:opacity-90">Daftar</a>
           </article>
-          <article class="rounded-2xl border border-neutral-200 p-5 shadow-card flex flex-col">
+          <article class="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 shadow-card flex flex-col">
             <h2 class="font-semibold flex items-center gap-2"><span class="inline-block h-2 w-2 rounded-full bg-accent2"></span>Sharing Alumni</h2>
-            <p class="mt-2 text-sm text-neutral-700 flex-1">Dengar cerita nyata tentang karier, magang, dan peluang. Tanyakan hal yang kamu penasaran.</p>
+            <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300 flex-1">Dengar cerita nyata tentang karier, magang, dan peluang. Tanyakan hal yang kamu penasaran.</p>
             <a href="#" class="mt-4 inline-flex self-start items-center rounded-full px-3 py-1.5 bg-primary text-white text-sm font-semibold hover:opacity-90">Lihat Jadwal</a>
           </article>
         </div>
 
-        <div class="mt-10 rounded-3xl p-6 border border-neutral-200 bg-gradient-to-r from-primary/5 to-accent2/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="mt-10 rounded-3xl p-6 border border-neutral-200 dark:border-neutral-800 bg-gradient-to-r from-primary/5 to-accent2/5 dark:from-primary/10 dark:to-accent2/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <h3 class="font-display text-xl font-bold">Punya ide kegiatan baru</h3>
-            <p class="text-neutral-600 text-sm">Kasih usul. Kita diskusikan, kita eksekusi bareng.</p>
+            <p class="text-neutral-600 dark:text-neutral-300 text-sm">Kasih usul. Kita diskusikan, kita eksekusi bareng.</p>
           </div>
           <div>
-            <a href="contact.html" class="inline-flex items-center rounded-full px-4 py-2 border border-neutral-300 hover:border-neutral-400">Hubungi Kami</a>
+            <a href="contact.html" class="inline-flex items-center rounded-full px-4 py-2 border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500">Hubungi Kami</a>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="border-t border-neutral-200 py-8">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-600">
+    <footer class="border-t border-neutral-200 dark:border-neutral-800 py-8">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-600 dark:text-neutral-300">
         <span> &copy; <span id="y"></span> UTDI THE ARCADE</span>
         <div class="flex items-center gap-4">
           <a href="#" class="hover:text-primary">Instagram</a>
@@ -102,6 +121,13 @@
 
     <script>
       document.getElementById('y').textContent = new Date().getFullYear()
+      const btn = document.getElementById('themeToggle');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const isDark = document.documentElement.classList.toggle('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+      }
     </script>
   </body>
 </html>
