@@ -1,11 +1,12 @@
 # UTDI THE ARCADE - Landing Page
 
-Landing page untuk komunitas Gen Z di kampus UTDI yang menjadikan dunia digital sebagai petualangan. Dibangun sangat ringan dengan Tailwind Play CDN, fokus pada tipografi display yang bold, grid kartu yang playful, dan palet warna kontras.
+Landing page untuk Student Zone Gen Z di kampus UTDI yang menjadikan dunia digital sebagai petualangan. Dibangun sangat ringan dengan Tailwind Play CDN, fokus pada tipografi display yang bold, grid kartu yang playful, dan palet warna kontras.
 
 ## Preview
 Buka file `index.html` langsung di browser atau gunakan Live Server untuk hot reload. Tampilan hero berisi headline "THE ARCADE" dengan gradient, badge miring, dan grid 4 kartu berwarna.
 
-![Preview Landing](assets/images/landing.png)
+![Preview Light Landing](assets/images/landinglight.png)
+![Preview Dark Landing](assets/images/landingdark.png)
 
 ## Fitur
 - __Hero besar & bold__: Heading display dengan gradient `from-primary` → `to-accent2` dan badge miring.
@@ -43,7 +44,8 @@ landing/
 │  └─ contact.html
 ├─ assets/
 │  └─ images/
-│     └─ landing.png      # Screenshot preview README
+│     └─ landinglight.png      # Screenshot preview README
+│     └─ landingdark.png      # Screenshot preview README
 ├─ README.md              # Dokumen ini
 └─ LICENSE                # Lisensi
 ```
